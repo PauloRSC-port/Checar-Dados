@@ -1,0 +1,41 @@
+##Declarar variáveis
+dados = []
+list = []
+resp = ' '
+mai = men = 0
+##Estrutura de repetição para pedir dados
+while True:
+    dados.append(str(input("Digite um nome: ")))
+    dados.append(int(input("Digite o peso: ")))
+##Se tiver somente 1 pessoa cadastrada ela sera o maior e o menor peso cadastrado.
+    if len(list) == 0:
+        mai = men = dados[1]
+##Atribuindo o maior e o menor peso para as variáveis        
+    else:
+        if dados[1] > mai:
+            mai = dados[1]
+        if dados[1] < men:
+            men = dados[1]
+##Colocando a lista secundaria na lista principal            
+    list.append(dados.copy())
+##Laço para saber se o usuário deseja continuar
+    resp = str(input("Deseja continuar? [S/N] ")).strip().upper()[0]
+    dados.clear()
+    if resp in 'Nn':
+        break
+##Se quiser apenas aceitar 'S' ou 'N'
+##    else:
+##    if resp not in 'SsNn':
+##        print("Resposta inválida, Deseja Continuar? [S/N] ")
+##        resp = str(input("Deseja continuar? [S/N] ")).strip().upper()[0]
+
+##Mostrar a lista
+print(f"Os dados cadastrados foram {list} ")
+##Ler quantas pessoas foram cadastradas
+print(f"Encontrei {len(list)} pessoas cadastradas. ")
+##Laço para analisar qual o maior e o menor peso.
+for p in list:
+    if p[1] == mai:
+        print(f"O maior peso encontrado foi de {p[0]} com {mai}Kg. ")
+    elif p[1] == men:
+        print(f"O menor peso encontrado foi de {p[0]} com {men}Kg. ")
